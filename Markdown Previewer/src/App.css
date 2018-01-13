@@ -1,0 +1,29 @@
+.App, .textRow, .textCol1, .textCol2 {
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+}
+
+.btn {
+  color: black;
+  width: 100%;
+}
+
+.btn:focus, .btn:active {
+  outline: none !important;
+}
+
+.moreInfoA, .moreInfoA:hover, .moreInfoA:active {
+  color: black;
+  text-decoration: none !important;
+}
+
+@media (max-width: 767px) {
+  .helperButtons .col-xs-12 {
+    margin-bottom: 10px;
+  }
+
+  .textCol1 {
+    margin-bottom: 20px;
+  }
+}

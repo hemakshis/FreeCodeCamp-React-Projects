@@ -1,0 +1,19 @@
+.Footer {
+  padding-top: 40px;
+}
+
+#footer-ul li {
+  font-size: 24px;
+  display: inline-block;
+  padding-right: 3.5%;
+}
+
+.fa-code, .fa-heart {
+  -webkit-text-stroke: 1px;
+}
+
+@media (max-width: 767px) {
+  .Footer {
+    padding-top: 660px;
+  }
+}

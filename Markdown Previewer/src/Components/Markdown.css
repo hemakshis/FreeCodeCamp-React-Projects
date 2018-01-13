@@ -1,0 +1,10 @@
+.MarkdownDiv {
+  height: 600px;
+  min-height: 600px;
+  max-height: 600px;
+  overflow-y: auto;
+  background-color: #cdcdc0;
+  border-radius: 10px;
+  box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.4);
+  padding: 5px;
+}
