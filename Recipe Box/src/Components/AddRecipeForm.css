@@ -1,0 +1,41 @@
+.jumbotron {
+  background-color: transparent; }
+  .jumbotron form {
+    margin-top: -8%; }
+    .jumbotron form label {
+      color: white;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 20px;
+      border-bottom: 2px dashed white; }
+    .jumbotron form input, .jumbotron form textarea, .jumbotron form input:focus, .jumbotron form input:active, .jumbotron form textarea:focus, .jumbotron form textarea:active {
+      background-color: transparent;
+      color: white; }
+      .jumbotron form input::-webkit-input-placeholder, .jumbotron form textarea::-webkit-input-placeholder, .jumbotron form input:focus::-webkit-input-placeholder, .jumbotron form input:active::-webkit-input-placeholder, .jumbotron form textarea:focus::-webkit-input-placeholder, .jumbotron form textarea:active::-webkit-input-placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic; }
+      .jumbotron form input:-moz-placeholder, .jumbotron form textarea:-moz-placeholder, .jumbotron form input:focus:-moz-placeholder, .jumbotron form input:active:-moz-placeholder, .jumbotron form textarea:focus:-moz-placeholder, .jumbotron form textarea:active:-moz-placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic; }
+      .jumbotron form input::-moz-placeholder, .jumbotron form textarea::-moz-placeholder, .jumbotron form input:focus::-moz-placeholder, .jumbotron form input:active::-moz-placeholder, .jumbotron form textarea:focus::-moz-placeholder, .jumbotron form textarea:active::-moz-placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic; }
+      .jumbotron form input:-ms-input-placeholder, .jumbotron form textarea:-ms-input-placeholder, .jumbotron form input:focus:-ms-input-placeholder, .jumbotron form input:active:-ms-input-placeholder, .jumbotron form textarea:focus:-ms-input-placeholder, .jumbotron form textarea:active:-ms-input-placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic; }
+    .jumbotron form .btn-add-recipe {
+      background-color: transparent;
+      color: green;
+      border-color: green;
+      border-radius: 0px; }
+      .jumbotron form .btn-add-recipe:hover {
+        background-color: green;
+        color: black; }
+    .jumbotron form .btn-cancel-recipe {
+      background-color: transparent;
+      color: red;
+      border-color: red;
+      border-radius: 0px; }
+      .jumbotron form .btn-cancel-recipe:hover {
+        background-color: red;
+        color: black; }

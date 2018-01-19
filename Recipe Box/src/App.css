@@ -1,1 +1,52 @@
+@import url(https://fonts.googleapis.com/css?family=Love+Ya+Like+A+Sister|Risque);
+.main-header {
+  font-family: "Love Ya Like A Sister", cursive;
+  font-size: 64px; }
 
+.App {
+  position: relative;
+  margin: auto;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  padding-top: 5%; }
+
+.starter-buttons .btn {
+  height: 50px;
+  width: 150px;
+  margin: 5% 5%;
+  background: transparent;
+  border-radius: 0px;
+  color: white;
+  padding: 0% 1%;
+  font-family: "Risque", cursive;
+  font-size: 18px;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  border: 1px solid white; }
+  .starter-buttons .btn:hover, .starter-buttons .btn:active {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-shadow: none;
+    background-color: white;
+    color: black; }
+
+.btn-back {
+  background-color: transparent;
+  color: white;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  box-shadow: none; }
+  .btn-back i {
+    margin-top: 12px;
+    font-size: 42px; }
+  .btn-back:focus, .btn-back:active {
+    text-decoration: none;
+    outline: none;
+    border: none;
+    box-shadow: none; }

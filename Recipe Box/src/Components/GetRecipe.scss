@@ -1,0 +1,31 @@
+.btn-edit-recipe {
+  border-radius: 0px;
+  &:hover {
+    background-color: #0099CC;
+    border-color: #0099CC;
+    color: black;
+  }
+}
+
+.btn-delete-recipe {
+  background-color: transparent;
+  color: red;
+  border-color: red;
+  border-radius: 0px;
+  &:hover {
+    background-color: red;
+    color: black;
+  }
+}
+
+@media (max-width: 767px) {
+  .recipe {
+    position: relative;
+    width: 72%;
+    margin: auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin-top: -20%;
+  }
+}

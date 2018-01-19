@@ -1,0 +1,53 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {@content}
+  &:-moz-placeholder           {@content}
+  &::-moz-placeholder          {@content}
+  &:-ms-input-placeholder      {@content}
+};
+
+@mixin form-values {
+  background-color: transparent;
+}
+
+.jumbotron {
+  @include form-values;
+  form {
+    margin-top: -8%;
+
+    label {
+      color: white;
+      font-style: italic;
+      font-weight: bold;
+      font-size: 20px;
+      border-bottom: 2px dashed white;
+    }
+    input, textarea, input:focus, input:active, textarea:focus, textarea:active {
+      @include form-values;
+      color: white;
+      @include placeholder {
+        color: rgba(255, 255, 255, 0.7);
+        font-style: italic;
+      };
+    }
+    .btn-add-recipe {
+      @include form-values;
+      color: green;
+      border-color: green;
+      border-radius: 0px;
+      &:hover {
+        background-color: green;
+        color: black;
+      }
+    }
+    .btn-cancel-recipe {
+      @include form-values;
+      color: red;
+      border-color: red;
+      border-radius: 0px;
+      &:hover {
+        background-color: red;
+        color: black;
+      }
+    }
+  }
+}

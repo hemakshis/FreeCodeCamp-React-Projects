@@ -1,0 +1,71 @@
+@mixin remove-btn-outline {
+  text-decoration: none;
+  outline:none;
+  border: none;
+  box-shadow: none;
+};
+
+.view-recipes {
+  margin-top: -5%;
+}
+
+.pagination {
+  .page-item {
+    margin: 0% 1%;
+    .page-link {
+      background-color: transparent;
+      color: white;
+      border-style: none;
+      font-size: 18px;
+    }
+    &:hover {
+      color: white;
+    }
+  }
+  .active {
+    border-bottom: 1px solid white;
+    border-radius: 0px;
+    .page-link {
+      color: white;
+    }
+  }
+}
+
+.col-md-1 {
+  position: relative;
+  margin: 4% 0%;
+}
+
+.left-arrow, .right-arrow {
+  button {
+    background-color: transparent;
+    i {
+      color: white;
+    }
+    @include remove-btn-outline;
+    &:focus, &:active {
+      @include remove-btn-outline;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .left-arrow-div, .right-arrow-div, .recipe {
+    position: relative;
+    margin-left: 0px;
+    margin-top: 0px;
+  }
+
+  .left-arrow-div, .right-arrow-div {
+    width: 12%;
+  }
+
+  .right-arrow-div {
+    position: fixed;
+    margin-left: 84% !important;
+  }
+}
+
+// .rightArrow {
+//   margin: -12% 0%;
+// }
