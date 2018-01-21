@@ -1,25 +1,16 @@
+.recipe-title h3 {
+  display: inline-block; }
+
+.recipe-title .btn-div {
+  display: none; }
+
+.recipe-title:hover .btn-div {
+  display: inline-block; }
+
 .btn-edit-recipe {
-  border-radius: 0px; }
-  .btn-edit-recipe:hover {
-    background-color: #0099CC;
-    border-color: #0099CC;
-    color: black; }
+  background-color: transparent;
+  color: white; }
 
 .btn-delete-recipe {
   background-color: transparent;
-  color: red;
-  border-color: red;
-  border-radius: 0px; }
-  .btn-delete-recipe:hover {
-    background-color: red;
-    color: black; }
-
-@media (max-width: 767px) {
-  .recipe {
-    position: relative;
-    width: 72%;
-    margin: auto;
-    top: 0;
-    left: 0;
-    right: 0;
-    margin-top: -20%; } }
+  color: red; }

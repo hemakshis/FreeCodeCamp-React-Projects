@@ -50,3 +50,6 @@
     outline: none;
     border: none;
     box-shadow: none; }
+
+.btn {
+  cursor: pointer; }

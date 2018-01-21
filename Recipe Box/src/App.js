@@ -1,21 +1,18 @@
 import React, { Component } from 'react';
 import AddRecipeForm from './Components/AddRecipeForm';
 import ViewRecipes from './Components/ViewRecipes';
-import EdiRecipeForm from './Components/EdiRecipeForm';
+import EditRecipeForm from './Components/EditRecipeForm';
 import uuid from 'uuid';
 import './App.css';
 
 function Header(props) {
   if (props.backButton) {
-    const h1Style = {
-      margin: '0% 10%'
-    };
     return (
       <div className="container-fluid text-white">
         <span className="float-left ml-sm-5">
           <button type="button" className="btn btn-back" onClick={props.onBackButtonClick}><i className="material-icons">arrow_back</i></button>
         </span>
-        <h1 className="text-center main-header" style={h1Style}>{props.title}</h1>
+        <h1 className="text-center main-header" style={{margin: '0% 10%'}}>{props.title}</h1>
       </div>
     );
   } else {
@@ -62,8 +59,8 @@ class App extends Component {
       mainTitle: 'Recipe Box',
       displayAddRecipeForm: false,
       displayAllRecipes: false,
-      EditRecipeForm: {
-        show: false,
+      displayEditRecipeForm: {
+        display: false,
         recipeNo: null
       },
       recipes: recipes
@@ -79,20 +76,15 @@ class App extends Component {
   }
 
   goToMainPage () {
-    if (this.state.EditRecipeForm.show) {
-      this.handleViewRecipesBtn () ;
-    } else {
-      this.setState({
-        mainTitle: 'Recipe Box',
-        displayAddRecipeForm: false,
-        displayAllRecipes: false,
-        EditRecipeForm: {
-          show: false,
-          recipeNo: null
-        },
-        recipes: this.state.recipes
-      });
-    }
+    this.setState({
+      mainTitle: 'Recipe Box',
+      displayAddRecipeForm: false,
+      displayAllRecipes: false,
+      displayEditRecipeForm: {
+        display: false,
+        recipeNo: null
+      }
+    });
   }
 
   handleViewRecipesBtn () {
@@ -100,38 +92,26 @@ class App extends Component {
       mainTitle: 'My Recipes',
       displayAddRecipeForm: false,
       displayAllRecipes: true,
-      EditRecipeForm: {
-        show: false,
-        recipeNo: null
-      },
-      recipes: this.state.recipes
     });
   }
 
   handleAddRecipeBtn () {
     this.setState({
-      mainTitle: 'Your Recipe',
+      mainTitle: 'New Recipe',
       displayAddRecipeForm: true,
       displayAllRecipes: false,
-      EditRecipeForm: {
-        show: false,
-        recipeNo: null
-      },
-      recipes: this.state.recipes
     });
   }
 
   handleEditRecipeBtn (recipeNo) {
-    const title = this.state.recipes[recipeNo].title;
     this.setState({
-      mainTitle: title,
+      mainTitle: this.state.recipes[recipeNo].title,
       displayAddRecipeForm: false,
       displayAllRecipes: false,
-      EditRecipeForm: {
-        show: true,
+      displayEditRecipeForm: {
+        display: true,
         recipeNo: recipeNo
-      },
-      recipes: this.state.recipes
+      }
     });
   }
 
@@ -146,15 +126,13 @@ class App extends Component {
       title: title,
       ingredients: ingredients.split(',')
     });
-
     localStorage.setItem('RecipeBoxHemakshis', JSON.stringify(recipes));
-
     this.setState({
       mainTitle: 'Recipe Box',
       displayAddRecipeForm: false,
       displayAllRecipes: false,
-      EditRecipeForm: {
-        show: false,
+      displayEditRecipeForm: {
+        display: false,
         recipeNo: null
       },
       recipes: recipes
@@ -169,51 +147,35 @@ class App extends Component {
     let recipes = this.state.recipes;
     recipes[recipeNo].title = newTitle;
     recipes[recipeNo].ingredients = newIngredients.split(',');
-
     localStorage.setItem('RecipeBoxHemakshis', JSON.stringify(recipes));
-
     this.setState({
       mainTitle: 'My Recipes',
       displayAddRecipeForm: false,
       displayAllRecipes: true,
-      EditRecipeForm: {
-        show: false,
+      displayEditRecipeForm: {
+        display: false,
         recipeNo: null
       },
       recipes: recipes
     })
-
   }
 
   handleDeleteRecipe (recipeNo) {
     let recipes = this.state.recipes;
-
     recipes.splice(recipeNo, 1);
-
     localStorage.setItem('RecipeBoxHemakshis', JSON.stringify(recipes));
-
     this.setState({
       mainTitle: 'My Recipes',
-      displayAddRecipeForm: false,
-      displayAllRecipes: true,
-      EditRecipeForm: {
-        show: false,
-        recipeNo: null
-      },
       recipes: recipes
     });
-
   }
 
   render() {
-    const showAddRecipeForm = this.state.displayAddRecipeForm;
-    const showEditRecipeForm = this.state.EditRecipeForm.show;
-    const showAllRecipes = this.state.displayAllRecipes;
-    const showButtons = !(showAddRecipeForm || showAllRecipes || showEditRecipeForm);
-    const recipeNo = this.state.EditRecipeForm.recipeNo;
+    const showButtons = !(this.state.displayAddRecipeForm || this.state.displayEditRecipeForm.display || this.state.displayAllRecipes);
+    const recipeNo = this.state.displayEditRecipeForm.recipeNo;
     return (
       <div>
-        <Header title={this.state.mainTitle} backButton={!showButtons} onBackButtonClick={this.goToMainPage} />
+        <Header title={this.state.mainTitle} backButton={this.state.displayAllRecipes} onBackButtonClick={this.goToMainPage} />
         <div className="App">
           <div className="container-fluid">
             {
@@ -222,11 +184,11 @@ class App extends Component {
                   <button onClick={this.handleAddRecipeBtn} className="btn" type="button"><i className="fa fa-plus"></i> Add Recipe</button>
                   <button onClick={this.handleViewRecipesBtn} className="btn" type="button"><i className="fa fa-cutlery"></i> View Recipes</button>
                 </div>
-              : showAddRecipeForm ?
-                <AddRecipeForm onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'Your Recipe'})}} onSubmit={this.handleSubmitRecipe} onCanelBtnClick={this.goToMainPage} />
-              : showAllRecipes ?
+              : this.state.displayAddRecipeForm ?
+                <AddRecipeForm onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'New Recipe'})}} onSubmit={this.handleSubmitRecipe} onCanelBtnClick={this.goToMainPage} />
+              : this.state.displayAllRecipes ?
                 <ViewRecipes recipes={this.state.recipes} onDelete={this.handleDeleteRecipe} onEditBtnClick={this.handleEditRecipeBtn} />
-              : <EdiRecipeForm recipes={this.state.recipes} recipeNo={recipeNo} onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'Edit Recipe'})}} onSubmit={this.handleSaveRecipe} onCanelBtnClick={this.handleViewRecipesBtn} />
+              : <EditRecipeForm recipes={this.state.recipes} recipeNo={recipeNo} onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'Edit Recipe'})}} onSubmit={this.handleSaveRecipe} onCanelBtnClick={this.handleViewRecipesBtn} />
             }
           </div>
         </div>

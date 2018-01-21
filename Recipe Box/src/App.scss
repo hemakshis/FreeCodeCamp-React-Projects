@@ -60,3 +60,7 @@ $font-btn: 'Risque', cursive;
     @include remove-btn-outline;
   }
 }
+
+.btn {
+  cursor: pointer;
+}

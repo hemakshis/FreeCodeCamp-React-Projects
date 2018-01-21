@@ -165,7 +165,6 @@ class ViewRecipes extends Component {
     } else {
       noOfPages = totalRecipes % 3 === 0 ? totalRecipes / 3 : Math.floor(totalRecipes / 3) + 1;
     }
-    //console.log(totalRecipes, noOfPages);
     return (
       <div className="container-fluid view-recipes">
         <div className="pagination-div">
@@ -173,42 +172,8 @@ class ViewRecipes extends Component {
             <PageItems noOfPages={noOfPages} currPageNo={this.state.currPageNo} onClick={this.handlePagination} />
           </nav>
         </div>
-        <div className="row recipe-box">
-          <div className="col-md-1 left-arrow-div">
-            <div className="left-arrow">
-              {
-                this.state.currPageNo > 1 ? (
-                  <button type="button" className="btn" onClick={this.handleLeftArrowClick}>
-                    <i className="fa fa-angle-left fa-5x"></i>
-                  </button>
-                )
-                : (
-                  <button type="button" className="btn" disabled="true">
-                    <i className="fa fa-angle-left fa-5x" style={{color:'transparent'}}></i>
-                  </button>
-                )
-              }
-            </div>
-          </div>
-          <div className="col-md-10 recipe-grid">
-            <GetRecipes recipes={recipes} startRecipeNo={this.state.startRecipeNo} totalRecipes={totalRecipes} windowWidth={this.state.windowWidth} onEdit={this.onEdit} onDelete={this.onDelete} />
-          </div>
-          <div className="col-md-1 right-arrow-div">
-            <div className="right-arrow">
-              {
-                this.state.currPageNo < noOfPages ? (
-                  <button type="button" className="btn" onClick={this.handleRightArrowClick}>
-                    <i className="fa fa-angle-right fa-5x"></i>
-                  </button>
-                )
-                : (
-                  <button type="button" className="btn" disabled="true">
-                    <i className="fa fa-angle-right fa-5x" style={{color:'transparent'}}></i>
-                  </button>
-                )
-              }
-            </div>
-          </div>
+        <div className="recipe-box">
+          <GetRecipes recipes={recipes} startRecipeNo={this.state.startRecipeNo} totalRecipes={totalRecipes} windowWidth={this.state.windowWidth} onEdit={this.onEdit} onDelete={this.onDelete} />
         </div>
       </div>
     );
