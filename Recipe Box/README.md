@@ -1,7 +1,7 @@
 ### Recipe Box
 
-A simple (Recipe Box)[https://codepen.io/hemakshis/full/jYdPLy/] made solely with React.
-Visit (Build a Recipe Box | freeCodeCamp)[https://www.freecodecamp.org/challenges/build-a-recipe-box] for more details.
+A simple [Recipe Box](https://codepen.io/hemakshis/full/jYdPLy/) made solely with React.
+Visit [Build a Recipe Box | freeCodeCamp](https://www.freecodecamp.org/challenges/build-a-recipe-box) for more details.
 
 ### User Stories
 > 1. I can create recipes that have names and ingredients.
