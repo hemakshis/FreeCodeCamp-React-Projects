@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import AddRecipeForm from './Components/AddRecipeForm';
 import ViewRecipes from './Components/ViewRecipes';
-import EditRecipeForm from './Components/EditRecipeForm';
 import uuid from 'uuid';
 import './App.css';
 
@@ -188,7 +187,7 @@ class App extends Component {
                 <AddRecipeForm onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'New Recipe'})}} onSubmit={this.handleSubmitRecipe} onCanelBtnClick={this.goToMainPage} />
               : this.state.displayAllRecipes ?
                 <ViewRecipes recipes={this.state.recipes} onDelete={this.handleDeleteRecipe} onEditBtnClick={this.handleEditRecipeBtn} />
-              : <EditRecipeForm recipes={this.state.recipes} recipeNo={recipeNo} onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'Edit Recipe'})}} onSubmit={this.handleSaveRecipe} onCanelBtnClick={this.handleViewRecipesBtn} />
+              : <AddRecipeForm onChange={(title) => {title ? this.setState({mainTitle: title}) : this.setState({mainTitle: 'Edit Recipe'})}} onSubmit={this.handleSaveRecipe} onCanelBtnClick={this.handleViewRecipesBtn} recipe={this.state.recipes[recipeNo]} recipeNo={recipeNo} />
             }
           </div>
         </div>

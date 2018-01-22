@@ -14,23 +14,39 @@ class AddRecipeForm extends Component {
 
   handleSubmit (e) {
     e.preventDefault();
-    this.props.onSubmit(this.refs.recipeTitle.value, this.refs.ingredients.value);
+    if (this.props.hasOwnProperty('recipe')) {
+      this.props.onSubmit(e.target[0].value, e.target[1].value, this.props.recipeNo);
+    } else {
+      this.props.onSubmit(e.target[0].value, e.target[1].value);
+    }
   }
 
   render () {
+    let title = '';
+    let ingredients = '';
+    let btnValue ='Add It!';
+    if (this.props.hasOwnProperty('recipe')) {
+      const recipe = this.props.recipe;
+      title = this.props.recipe.title;
+      ingredients = recipe.ingredients[0];
+      for (let i = 1; i < recipe.ingredients.length; i++) {
+        ingredients += ',' + recipe.ingredients[i];
+      }
+      btnValue = 'Save!';
+    }
     return (
       <div className="container">
         <div className="jumbotron">
           <form onSubmit={this.handleSubmit}>
             <div className="form-group">
               <label>Title</label>
-              <input className="form-control" placeholder="Give your recipe a name." type="text" ref="recipeTitle" onChange={this.handleTitleChange} />
+              <input className="form-control" placeholder="Give your recipe a name." type="text" onChange={this.handleTitleChange} defaultValue={title} />
             </div>
             <div className="form-group">
               <label>Ingredients</label>
-              <textarea className="form-control" placeholder="Tell us what ingredients are required. Seperate them by spaces." ref="ingredients"></textarea>
+              <textarea className="form-control" placeholder="Tell us what ingredients are required. Seperate them by spaces." defaultValue={ingredients}></textarea>
             </div>
-            <button type="submit" className="btn btn-add-recipe float-right">Add it!</button>
+            <button type="submit" className="btn btn-add-recipe float-right">{btnValue}</button>
             <button type="button" className="btn btn-cancel-recipe mr-3 float-right" onClick={this.props.onCanelBtnClick}>Cancel</button>
           </form>
         </div>
