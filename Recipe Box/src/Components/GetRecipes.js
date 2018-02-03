@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './GetRecipe.css';
+import '../Styles/GetRecipe.css';
 
 function Ingredients (props) {
   let ingredients = '';

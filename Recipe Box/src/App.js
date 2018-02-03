@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import AddRecipeForm from './Components/AddRecipeForm';
 import ViewRecipes from './Components/ViewRecipes';
 import uuid from 'uuid';
-import './App.css';
+import './Styles/App.css';
 
+// The upper back button that is displayed in ViewRecipes Component
 function Header(props) {
   if (props.backButton) {
     return (
@@ -25,6 +26,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     var recipes;
+    // If no localStorage key is present with the name "RecipeBoxHemakshis add one with the following recipes"
     if (JSON.parse(localStorage.getItem('RecipeBoxHemakshis')) === null) {
       recipes = [
         {
@@ -74,6 +76,7 @@ class App extends Component {
     this.handleDeleteRecipe = this.handleDeleteRecipe.bind(this);
   }
 
+  // When the backButton is clicked
   goToMainPage () {
     this.setState({
       mainTitle: 'Recipe Box',

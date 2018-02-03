@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import uuid from 'uuid';
-import './ViewRecipes.css';
+import '../Styles/ViewRecipes.css';
 import GetRecipes from './GetRecipes';
 
+// Page numbers displayes below the heading
 function PageItems (props) {
   var pageItems = [];
   for (var i = 0; i < props.noOfPages; i++) {
@@ -85,6 +86,7 @@ class ViewRecipes extends Component {
     window.removeEventListener('resize', this.updateWindowWidth)
   }
 
+  // To set different view for small size screens
   updateWindowWidth () {
     this.setState({
       startRecipeNo: this.state.startRecipeNo,

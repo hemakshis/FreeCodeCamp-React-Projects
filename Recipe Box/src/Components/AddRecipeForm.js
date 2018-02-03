@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './AddRecipeForm.css';
+import '../Styles/AddRecipeForm.css';
 
 class AddRecipeForm extends Component {
   constructor (props) {
@@ -14,6 +14,7 @@ class AddRecipeForm extends Component {
 
   handleSubmit (e) {
     e.preventDefault();
+    // For editing recipes
     if (this.props.hasOwnProperty('recipe')) {
       this.props.onSubmit(e.target[0].value, e.target[1].value, this.props.recipeNo);
     } else {
