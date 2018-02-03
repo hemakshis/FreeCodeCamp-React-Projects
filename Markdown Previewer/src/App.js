@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import TextArea from './Components/TextArea'
 import Markdown from './Components/Markdown'
 import Footer from './Components/Footer'
-import './App.css'
+import './Styles/App.css'
 
 class App extends Component {
 

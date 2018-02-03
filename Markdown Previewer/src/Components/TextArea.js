@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import './TextArea.css'
+import '../Styles/TextArea.css'
 
 class TextArea extends Component {
 
